@@ -1,0 +1,28 @@
+<div class='wrapper'>
+  <h3>Know a pet needing a home?</h3>
+  <p>The pet must have a name and type.</p>
+  <h3 style="color: red">{{ char_error }}</h3>
+  <form (submit)="onSubmit()" class="postForm form-group">
+    <label>Name:
+      <input type='text' name='newPet.name' [(ngModel)]='newPet.name' />
+    </label>
+    <label>Type:
+      <input type='text' name='newPet.type' [(ngModel)]='newPet.type' />
+    </label>
+    <label>Description:
+      <input type='text' name='newPet.desc' [(ngModel)]='newPet.desc' />
+    </label>
+    <h4>Skills:</h4>
+    <label>Skill 1:
+      <input type='text' name='newPet.skill1' [(ngModel)]='newPet.skill1' />
+    </label>
+    <label>Skill 2:
+      <input type='text' name='newPet.skill2' [(ngModel)]='newPet.skill2' />
+    </label>
+    <label>Skill 3:
+      <input type='text' name='newPet.skill3' [(ngModel)]='newPet.skill3' />
+    </label>
+    <input type="submit" class="btn btn-outline-primary btn-sm" value="Add Pet" />
+  </form>
+  <button (click)="goHome()" class="btn btn-outline-primary btn-sm">Cancel</button>
+</div>

@@ -1,0 +1,48 @@
+<div class='wrapper'>
+  <a [routerLink]="['/home']">Home</a>
+  <p>Details about {{ pet.name }}</p>
+  <table margin="0 auto" width="100%" class="table table-striped">
+    <tr>
+      <td>
+        <h4>Pet type</h4>
+      </td>
+      <td>
+        <p>{{ pet.type }}</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h4>Description</h4>
+      </td>
+      <td>
+        <p>{{ pet.desc }}</p>
+      </td>
+    </tr>
+    <tr>
+        <td>
+          <h4>Skills:</h4>
+        </td>
+        <td>
+          <p>{{ pet.skill1 }}</p>
+          <p>{{ pet.skill2 }}</p>
+          <p>{{ pet.skill3 }}</p>
+        </td>
+      </tr>
+      <tr>
+          <td>
+            <h4>Likes:</h4>
+          </td>
+          <td>
+            <p>{{ x }}</p>
+          </td>
+        </tr>  
+    <tr>
+      <td>
+        <button id="like" (click)="likePet(pet._id)" class="btn btn-outline-primary btn-sm" type="button" data-toggle="like" data-target="#like" aria-expanded="false" aria-controls="like">Like this pet</button>
+      </td>
+      <td>
+        <button (click)="adoptPet(pet._id)" class="btn btn-outline-primary btn-sm">Adopt this pet!</button>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<div class='wrapper'>
+    <h3>Edit this pet</h3>
+    <p>The pet must have a name and type.</p>
+    <h3 style="color: red">{{ char_error }}</h3>
+    <form (submit)="onClickUpdate()" class="postForm form-group">
+      <label>Name:
+        <input type='text' name='pet.name' [(ngModel)]='pet.name' />
+      </label>
+      <label>Type:
+        <input type='text' name='pet.type' [(ngModel)]='pet.type' />
+      </label>
+      <label>Description:
+        <input type='text' name='pet.desc' [(ngModel)]='pet.desc' />
+      </label>
+      <h4>Skills:</h4>
+      <label>Skill 1:
+        <input type='text' name='pet.skill1' [(ngModel)]='pet.skill1' />
+      </label>
+      <label>Skill 2:
+        <input type='text' name='pet.skill2' [(ngModel)]='pet.skill2' />
+      </label>
+      <label>Skill 3:
+        <input type='text' name='pet.skill3' [(ngModel)]='pet.skill3' />
+      </label>
+      <input type="submit" class="btn btn-outline-primary btn-sm" value="Edit Pet" />
+    </form>
+    <button [routerLink]="['/home']" class="btn btn-outline-primary btn-sm">Cancel</button>
+  </div>
