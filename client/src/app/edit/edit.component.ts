@@ -36,21 +36,25 @@ export class EditComponent implements OnInit {
   };
 
   onClickUpdate(){
-    if(this.pet['name'].length < 3){
+    if(this.pet['name'] == null || this.pet['name'].length < 3){
       this.char_error = "A name must be at least 3 characters!";
       console.log(this.char_error);
-    } else if(this.pet['type'].length < 3) {
+    } else if(this.pet['type'] == null || this.pet['type'].length < 3) {
       this.char_error = "A type must be at least 3 characters!";
-    } else if(this.pet['desc'].length < 3) {
+    } else if(this.pet['desc'] == null || this.pet['desc'].length < 3) {
       this.char_error = "A description must be at least 3 characters!";
     } else {
       let observable = this._httpService.updatePet(this.pet);
       observable.subscribe(data => {
         console.log("Got our post back!", data);
-        this.id = this.pet['_id'];
-        this.pet = [];
+        if(data['message'] == "Error") {
+          this.char_error = data['error'].message;
+        } else {
+          this.id = this.pet['_id'];
+          this.pet = [];
+          this._router.navigate(['/details', this.id]);
+        }
       });
-      this._router.navigate(['/details', this.id]);
     }
   };
 

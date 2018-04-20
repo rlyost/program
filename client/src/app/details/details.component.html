@@ -37,9 +37,10 @@
           </td>
         </tr>  
     <tr>
-      <td>
-        <button id="like" (click)="likePet(pet._id)" class="btn btn-outline-primary btn-sm" type="button" data-toggle="like" data-target="#like" aria-expanded="false" aria-controls="like">Like this pet</button>
+      <td *ngIf="!isPushed">
+        <button (click)="likePet(pet._id)" class="btn btn-outline-primary btn-sm">Like this pet</button>
       </td>
+      <td *ngIf="isPushed"></td>
       <td>
         <button (click)="adoptPet(pet._id)" class="btn btn-outline-primary btn-sm">Adopt this pet!</button>
       </td>

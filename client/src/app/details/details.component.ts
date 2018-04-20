@@ -7,10 +7,12 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
+
 export class DetailsComponent implements OnInit {
   pet = [];
   id = "";
   x = 0;
+  isPushed: boolean = false;
 
   constructor(
     private _route: ActivatedRoute,
@@ -19,6 +21,7 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.unPushMe();
     this._route.params.subscribe((params: Params) => this.id = params['id']);
     this.getPet(this.id);
   }
@@ -38,6 +41,7 @@ export class DetailsComponent implements OnInit {
   };
 
   likePet(id) {
+    this.pushMe();
     this.x++;
     console.log(this.x, id);
     let observable = this._httpService.updateLike(id, this.x);
@@ -54,4 +58,10 @@ export class DetailsComponent implements OnInit {
     });
     this._router.navigate(['/home']);
   }
+  pushMe() {
+    this.isPushed = true;
+  };
+  unPushMe() {
+    this.isPushed = false;
+  };
 }

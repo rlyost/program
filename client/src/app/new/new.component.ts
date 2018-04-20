@@ -22,21 +22,25 @@ export class NewComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.newPet['name'].length < 3){
+    if(this.newPet['name'] == null || this.newPet['name'].length < 3){
       this.char_error = "A name must be at least 3 characters!";
       console.log(this.char_error);
-    } else if(this.newPet['type'].length < 3) {
+    } else if(this.newPet['type'] == null || this.newPet['type'].length < 3) {
       this.char_error = "A type must be at least 3 characters!";
-    } else if(this.newPet['desc'].length < 3) {
+    } else if(this.newPet['desc'] == null || this.newPet['desc'].length < 3) {
       this.char_error = "A description must be at least 3 characters!";
     } else {
       let observable = this._httpService.addPet(this.newPet);
       observable.subscribe(data => {
         console.log("Got our post back!", data);
+        if(data['message'] == "Error") {
+          this.char_error = data['error'].message;
+        } else {
+          this.newPet = {name: "", type: "", desc:"", skill1:"", skill2:"", skill3:""};
+          this.goHome();
+        }
       });
     };
-    this.newPet = {name: "", type: "", desc:"", skill1:"", skill2:"", skill3:""};
-    this.goHome();
   };
   goHome(){
     this._router.navigate(['/home']);
