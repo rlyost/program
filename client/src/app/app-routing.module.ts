@@ -13,8 +13,9 @@ const routes: Routes = [
   { path: 'details/:id', component: DetailsComponent },
   // use a colon and parameter name to include a parameter in the url
   //   { path: 'gamma/:id', component: GammaComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
-  { path: '**', component: PagenotfoundComponent }
+  { path: '', component: HomeComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '/' },
+  // { path: '**', component: PagenotfoundComponent }
 ];
 
 @NgModule({

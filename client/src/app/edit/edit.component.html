@@ -5,23 +5,23 @@
     <form (submit)="onClickUpdate()" class="postForm form-group">
       <label>Name:
         <input type='text' name='pet.name' [(ngModel)]='pet.name' />
-      </label>
+      </label><br>
       <label>Type:
         <input type='text' name='pet.type' [(ngModel)]='pet.type' />
-      </label>
+      </label><br>
       <label>Description:
         <input type='text' name='pet.desc' [(ngModel)]='pet.desc' />
-      </label>
+      </label><br>
       <h4>Skills:</h4>
       <label>Skill 1:
         <input type='text' name='pet.skill1' [(ngModel)]='pet.skill1' />
-      </label>
+      </label><br>
       <label>Skill 2:
         <input type='text' name='pet.skill2' [(ngModel)]='pet.skill2' />
-      </label>
+      </label><br>
       <label>Skill 3:
         <input type='text' name='pet.skill3' [(ngModel)]='pet.skill3' />
-      </label>
+      </label><br>
       <input type="submit" class="btn btn-outline-primary btn-sm" value="Edit Pet" />
     </form>
     <button [routerLink]="['/home']" class="btn btn-outline-primary btn-sm">Cancel</button>
